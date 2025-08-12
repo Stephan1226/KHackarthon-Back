@@ -1,9 +1,39 @@
 from sqlalchemy import Column, TEXT, INT, BIGINT, VARCHAR, DECIMAL, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from pydantic import BaseModel, ConfigDict
+from typing import Optional
 
 Base = declarative_base()
 
+# Pydantic 모델들 (API 요청/응답용)
+class UserCreate(BaseModel):
+    id: str
+    password: str
+
+class UserResponse(BaseModel):
+    user_id: int
+    id: str
+    
+    model_config = ConfigDict(from_attributes=True)
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    id: Optional[str] = None
+
+class UserWalletCreate(BaseModel):
+    money: float
+
+class UserWalletResponse(BaseModel):
+    user_id: int
+    money: float
+    
+    model_config = ConfigDict(from_attributes=True)
+
+# SQLAlchemy 모델들
 class User(Base):
     __tablename__ = "user"
     

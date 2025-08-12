@@ -1,13 +1,18 @@
-# FastAPI 관련
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
+# FastAPI 관련 - 최신 버전
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
 
-# 데이터베이스 관련
-sqlalchemy==2.0.23
+# 데이터베이스 관련 - 최신 SQLAlchemy 2.0.43 버전
+sqlalchemy==2.0.43
 mysqlclient==2.2.0
 
-# 데이터 검증
-pydantic==2.5.0
+# 데이터 검증 - 최신 Pydantic 2.11 버전
+pydantic==2.11.0
 
-# 기타 유틸리티
+# 보안 관련
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
 python-multipart==0.0.6
+
+# 테스트 관련
+requests==2.31.0
